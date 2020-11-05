@@ -1,4 +1,4 @@
-set(ser4cpp_public_headers
+set(ser4cpp_headers
     ./ser4cpp/container/Array.h
     ./ser4cpp/container/ArrayView.h
     ./ser4cpp/container/Buffer.h
@@ -16,7 +16,6 @@ set(ser4cpp_public_headers
     ./ser4cpp/serialization/FloatByteOrder.h
     ./ser4cpp/serialization/LittleEndian.h
     ./ser4cpp/serialization/SerializationTemplates.h
-    ./ser4cpp/serialization/Serializer.h
     ./ser4cpp/serialization/SingleFloat.h
     ./ser4cpp/serialization/UInt48Type.h
 
@@ -29,3 +28,6 @@ add_library(ser4cpp INTERFACE)
 #target_sources(ser4cpp INTERFACE ${ser4cpp_public_headers})
 target_compile_features(ser4cpp INTERFACE cxx_std_14)
 target_include_directories(ser4cpp INTERFACE .)
+install(DIRECTORY ./ser4cpp/container DESTINATION include/ser4cpp)
+install(DIRECTORY ./ser4cpp/serialization DESTINATION include/ser4cpp)
+install(DIRECTORY ./ser4cpp/util DESTINATION include/ser4cpp)
